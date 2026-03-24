@@ -206,3 +206,4 @@ NTSTATUS ZwWriteFile(HANDLE FileHandle,
    Status = IoCallDriver(FileObject->DeviceObject,Irp);
    return(Status);
 }
+
