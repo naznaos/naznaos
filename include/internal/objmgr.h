@@ -3,7 +3,7 @@
  * PROJECT:           NaznaOS kernel
  * FILE:              include/internal/objmgr.h
  * PURPOSE:           Object manager definitions
- * PROGRAMMER:        David Welch (welch@mcmail.com)
+ * PROGRAMMER:        Noah Juopperi (welch@mcmail.com)
  */
 
 #ifndef __INCLUDE_INTERNAL_OBJMGR_H

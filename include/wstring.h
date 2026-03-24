@@ -1,5 +1,5 @@
 /*
- * Adapted from linux for the naznaos kernel, march 1998 -- David Welch
+ * Adapted from linux for the naznaos kernel, march 1998 -- Noah Juopperi
  * Added wide character string functions, june 1998 -- Boudewijn Dekker
  * Removed extern specifier from ___wcstok, june 1998 -- Boudewijn Dekker
  * Added wcsicmp and wcsnicmp -- Boudewijn Dekker

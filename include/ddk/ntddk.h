@@ -3,7 +3,7 @@
  * PROJECT:        naznaos kernel
  * FILE:           include/ddk/ntddk.h
  * PURPOSE:        Interface definitions for drivers
- * PROGRAMMER:     David Welch (welch@mcmail.com)
+ * PROGRAMMER:     Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY:
  *                 15/05/98: Created
  */

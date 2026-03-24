@@ -1,5 +1,5 @@
 /*
- * Adapted from linux for the naznaos kernel, march 1998 -- David Welch
+ * Adapted from linux for the naznaos kernel, march 1998 -- Noah Juopperi
  * Removed extern specifier from ___strtok and ___wcstok, june 1998 -- Boudewijn Dekker
  * Added stricmp and strnicmp -- Boudewijn Dekker
  */

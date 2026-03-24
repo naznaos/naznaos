@@ -1,5 +1,5 @@
 /*
- * Adapted from linux for the naznaos kernel, march 1998 -- David Welch
+ * Adapted from linux for the naznaos kernel, march 1998 -- Noah Juopperi
  */
 
 #ifndef _LINUX_STRING_H_

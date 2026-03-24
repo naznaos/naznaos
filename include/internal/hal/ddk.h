@@ -3,7 +3,7 @@
  * PROJECT:                  NaznaOS kernel
  * FILE:                     include/internal/hal/ddk.h
  * PURPOSE:                  HAL provided defintions for device drivers
- * PROGRAMMER:               David Welch (welch@mcmail.com)
+ * PROGRAMMER:               Noah Juopperi (welch@mcmail.com)
  * REVISION HISTORY:
  *              23/06/98:   Taken from linux system.h
  */

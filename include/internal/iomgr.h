@@ -3,7 +3,7 @@
  * PROJECT:         naznaos kernel
  * FILE:            include/internal/iomgr.h
  * PURPOSE:         Internal io manager declarations
- * PROGRAMMER:      David Welch (welch@mcmail.com)
+ * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY:
  *               28/05/97: Created
  */

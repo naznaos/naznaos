@@ -1,7 +1,7 @@
 /*
  * kernel/heap.c
  * Copyright (C) 1996, Onno Hovers, All rights reserved
- * Adapted for the NaznaOS system libraries by David Welch (welch@mcmail.com)
+ * Adapted for the NaznaOS system libraries by Noah Juopperi (welch@mcmail.com)
  * todo: __processheap should be part of peb.
  */
 

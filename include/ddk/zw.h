@@ -4,9 +4,9 @@
  * PURPOSE:          System call definitions
  * FILE:             include/ddk/zw.h
  * REVISION HISTORY: 
- *              ??/??/??: First few functions (David Welch)
+ *              ??/??/??: First few functions (Noah Juopperi)
  *              ??/??/??: Complete implementation by Boudewijn Dekker
- *              13/07/98: Reorganised things a bit (David Welch)
+ *              13/07/98: Reorganised things a bit (Noah Juopperi)
  */
 
 #ifndef __DDK_ZW_H
@@ -873,7 +873,7 @@ NtFlushKey(
           );
 
 /*
- * FIXME: Is the return type correct? (David Welch)
+ * FIXME: Is the return type correct? (Noah Juopperi)
  */
 NTSTATUS
 STDCALL

@@ -3,7 +3,7 @@
  * PROJECT:         naznaos kernel
  * FILE:            include/internal/debug.h
  * PURPOSE:         Useful debugging macros
- * PROGRAMMER:      David Welch (welch@mcmail.com)
+ * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY: 
  *                28/05/98: Created
  */

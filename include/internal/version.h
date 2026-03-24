@@ -3,7 +3,7 @@
  * PROJECT:     NaznaOS kernel
  * FILE:        include/internal/version.h
  * PURPOSE:     Defines the current version
- * PROGRAMMER:  David Welch (welch@mcmail.com)
+ * PROGRAMMER:  Noah Juopperi (welch@mcmail.com)
  */
 
 #ifndef __VERSION_H
