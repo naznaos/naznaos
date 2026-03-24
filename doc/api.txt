@@ -124,7 +124,7 @@ FUNCTION: Set only the page register bits of the transfer address
 NAME: void set_dma_addr(unsigned int dmanr, unsigned int a)
 WHERE: internal/dma.h
 FUNCTION: Set the transfer address for dma
-NOTE: Assumes flip-flop is clear
+NOTE: Assumes flip-flop is clear 
 
 NAME: void set_dma_count(unsigned int dmanr, unsigned int count)
 WHERE: internal/dma.h
