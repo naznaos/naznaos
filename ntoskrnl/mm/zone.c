@@ -1,7 +1,7 @@
 /*
  * COPYRIGHT:     See COPYING in the top level directory
  * PROJECT:       NaznaOS kernel
- * FILE:          mkernel/mm/zone.c
+ * FILE:          ntoskrnl/mm/zone.c
  * PURPOSE:       Implements zone buffers
  * PROGRAMMER:    Noah Juopperi (welch@mcmail.com)
  */
@@ -9,8 +9,6 @@
 /* INCLUDES ****************************************************************/
 
 #include <ddk/ntddk.h>
-#include <internal/mm.h>
-#include <internal/kernel.h>
 
 /* FUNCTIONS ***************************************************************/
 

@@ -1,7 +1,7 @@
 /*
  * COPYRIGHT:       See COPYING in the top level directory
  * PROJECT:         NaznaOS kernel
- * FILE:            kernel/hal/x86/dma.c
+ * FILE:            ntoskrnl/hal/x86/dma.c
  * PURPOSE:         DMA functions
  * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY:
@@ -10,8 +10,6 @@
 
 /* INCLUDES *****************************************************************/
 
-#include <internal/kernel.h>
-#include <internal/linkage.h>
 #include <ddk/ntddk.h>
 
 #include <internal/debug.h>
