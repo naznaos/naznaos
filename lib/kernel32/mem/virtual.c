@@ -16,3 +16,4 @@ WINBOOL STDCALL VirtualFree(LPVOID lpAddress, DWORD dwSize, DWORD dwFreeType)
 {
    return(VirtualFreeEx(GetCurrentProcess(),lpAddress,dwSize,dwFreeType));
 }
+

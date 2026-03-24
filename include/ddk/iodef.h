@@ -281,3 +281,4 @@ enum
      IRP_MJ_PNP_POWER,
      IRP_MJ_MAXIMUM_FUNCTION,
 };
+

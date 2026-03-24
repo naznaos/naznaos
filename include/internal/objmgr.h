@@ -40,14 +40,16 @@ enum
    OBJTYP_SYMLNK,
    OBJTYP_DEVICE,
    OBJTYP_THREAD,
+   OBJTYP_FILE,
    OBJTYP_MAX,
 };
 
-BOOL ObjAddObjectToNameSpace(const char* path, POBJECT_HEADER Object);
+BOOL ObAddObjectToNameSpace(PUNICODE_STRING path, POBJECT_HEADER Object);
 
 VOID ObRegisterType(CSHORT id, OBJECT_TYPE* type);
 
-VOID ObInitializeObjectHeader(CSHORT id, LPCSTR name, POBJECT_HEADER obj);
+VOID ObInitializeObjectHeader(CSHORT id, PWSTR name,
+			      POBJECT_HEADER obj);
 
 /*
  * FUNCTION: Get the size of an object
@@ -57,9 +59,8 @@ VOID ObInitializeObjectHeader(CSHORT id, LPCSTR name, POBJECT_HEADER obj);
  */
 ULONG ObSizeOf(CSHORT Type);
 HANDLE ObAddHandle(PVOID obj);
-
+PVOID ObLookupObject(HANDLE rooth, PWSTR _string);
 PVOID ObGetObjectByHandle(HANDLE h);
-PVOID ObLookupObject(PDIRECTORY_OBJECT root, const char* _string);
 PVOID ObGenericCreateObject(PHANDLE Handle,
 			    ACCESS_MASK DesiredAccess,
 			    POBJECT_ATTRIBUTES ObjectAttributes,

@@ -1,7 +1,7 @@
 /*
  * COPYRIGHT:   See COPYING in the top directory
- * PROJECT:     NaznaOS kernel v0.0.2
- * FILE:        hal/page.cc
+ * PROJECT:     NaznaOS kernel
+ * FILE:        ntoskrnl/hal/x86/page.c
  * PURPOSE:     low level memory managment manipulation
  * PROGRAMER:   Noah Juopperi
  * UPDATE HISTORY:

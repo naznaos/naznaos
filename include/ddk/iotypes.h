@@ -16,10 +16,14 @@ struct _IO_STATUS_BLOCK;
 
 /* SIMPLE TYPES *************************************************************/
 
+enum
+{
+   DeallocateObject,
+   KeepObject,
+};
+
 typedef ULONG INTERFACE_TYPE;
 typedef INTERFACE_TYPE* PINTERFACE_TYPE;
-typedef ULONG CONFIGURATION_TYPE;
-typedef CONFIGURATION_TYPE* PCONFIGURATION_TYPE;
 
 /*
  * FIXME: Definition needed
@@ -59,11 +63,13 @@ typedef VOID (*PIO_APC_ROUTINE) (PVOID ApcContext,
 
 /*
  * PURPOSE: Special timer associated with each device
+ * NOTES: This is a guess
  */
 typedef struct _IO_TIMER
 {
-} IO_TIMER, PIO_TIMER;
-
+   KTIMER timer;
+   KDPC dpc;
+} IO_TIMER, *PIO_TIMER;
 
 /*
  * PURPOSE: IRP stack location
@@ -136,9 +142,6 @@ typedef struct _IO_STACK_LOCATION
     */
    PIO_COMPLETION_ROUTINE CompletionRoutine;
    PVOID CompletionContext;
-   BOOLEAN InvokeOnSuccess;
-   BOOLEAN InvokeOnError;
-   BOOLEAN InvokeOnCancel;
    
    /*
     * Driver created device object representing the target device
@@ -176,6 +179,73 @@ typedef NTSTATUS (*PDRIVER_INITIALIZE)(struct _DRIVER_OBJECT* DriverObject,
 typedef NTSTATUS (*PDRIVER_CANCEL)(struct _DRIVER_OBJECT* DriverObject,
 				   PUNICODE_STRING RegistryPath);
 
+
+typedef struct _SECTION_OBJECT_POINTERS
+{
+   PVOID DataSectionObject;
+   PVOID SharedCacheMap;
+   PVOID ImageSectionObject;
+} SECTION_OBJECT_POINTERS, *PSECTION_OBJECT_POINTERS;
+
+typedef struct _IO_COMPLETION_CONTEXT
+{
+   PVOID Port;
+   ULONG Key;
+} IO_COMPLETION_CONTEXT, *PIO_COMPLETION_CONTEXT;
+
+#define FO_FILE_OPEN                    0x00000001
+#define FO_SYNCHRONOUS_IO               0x00000002
+#define FO_ALERTABLE_IO                 0x00000004
+#define FO_NO_INTERMEDIATE_BUFFERING    0x00000008
+#define FO_WRITE_THROUGH                0x00000010
+#define FO_SEQUENTIAL_ONLY              0x00000020
+#define FO_CACHE_SUPPORTED              0x00000040
+#define FO_NAMED_PIPE                   0x00000080
+#define FO_STREAM_FILE                  0x00000100
+#define FO_MAILSLOT                     0x00000200
+#define FO_GENERATE_AUDIT_ON_CLOSE      0x00000400
+#define FO_DIRECT_DEVICE_OPEN           0x00000800
+#define FO_FILE_MODIFIED                0x00001000
+#define FO_FILE_SIZE_CHANGED            0x00002000
+#define FO_CLEANUP_COMPLETE             0x00004000
+#define FO_TEMPORARY_FILE               0x00008000
+#define FO_DELETE_ON_CLOSE              0x00010000
+#define FO_OPENED_CASE_SENSITIVE        0x00020000
+#define FO_HANDLE_CREATED               0x00040000
+#define FO_FILE_FAST_IO_READ            0x00080000
+
+typedef struct _FILE_OBJECT
+{
+   CSHORT Type;
+   CSHORT Size;
+   struct _DEVICE_OBJECT* DeviceObject;
+   struct _VPB* Vpb;   
+   PVOID FsContext;
+   PVOID FsContext2;
+   PSECTION_OBJECT_POINTERS SectionObjectPointers;
+   PVOID PrivateCacheMap;
+   NTSTATUS FinalStatus;
+   struct _FILE_OBJECT* RelatedFileObject;
+   BOOLEAN LockOperation;
+   BOOLEAN DeletePending;
+   BOOLEAN ReadAccess;
+   BOOLEAN WriteAccess;
+   BOOLEAN DeleteAccess;
+   BOOLEAN SharedRead;
+   BOOLEAN SharedWrite;
+   BOOLEAN SharedDelete;
+   ULONG Flags;
+   UNICODE_STRING FileName;
+   LARGE_INTEGER CurrentByteOffset;
+   ULONG Waiters;
+   ULONG Busy;
+   PVOID LastLock;
+   KEVENT Lock;
+   KEVENT Event;
+   PIO_COMPLETION_CONTEXT CompletionContext;
+} FILE_OBJECT, *PFILE_OBJECT;
+
+
 typedef struct _IRP
 {
    PMDL MdlAddress;
@@ -212,13 +282,11 @@ typedef struct _IRP
 	struct
 	  {
 	     KDEVICE_QUEUE_ENTRY DeviceQueueEntry;
-//	     PETHREAD Thread;
-	     PVOID Thread;
+	     PETHREAD Thread;
 	     PCHAR AuxiliaryBuffer;
 	     LIST_ENTRY ListEntry;
 	     struct _IO_STACK_LOCATION* CurrentStackLocation;
-//	     PFILE_OBJECT OriginalFileObject;
-	     PVOID OriginalFileObject;
+	     PFILE_OBJECT OriginalFileObject;
 	  } Overlay;	  
 	KAPC Apc;
 	ULONG CompletionKey;
@@ -288,7 +356,7 @@ typedef NTSTATUS (*PFAST_IO_DISPATCH)(struct _DEVICE_OBJECT*, IRP*);
 /*
  * Dispatch routine type declaration
  */
-typedef NTSTATUS (*PDRIVER_STARTIO)(struct _DEVICE_OBJECT*, IRP*);
+typedef VOID (*PDRIVER_STARTIO)(struct _DEVICE_OBJECT*, IRP*);
 
 /*
  * Dispatch routine type declaration
@@ -326,14 +394,6 @@ typedef struct _DRIVER_OBJECT
 } DRIVER_OBJECT, *PDRIVER_OBJECT;
 
 
-
-
-typedef struct _FILE_OBJECT
-{
-   PDEVICE_OBJECT DeviceObject;
-   PVOID FsContext;
-} FILE_OBJECT, *PFILE_OBJECT;
-
 typedef struct _CONFIGURATION_INFORMATION
 {
    ULONG DiskCount;
@@ -355,20 +415,6 @@ typedef VOID (*PIO_DPC_ROUTINE)(PKDPC Dpc,
 typedef VOID (*PIO_TIMER_ROUTINE)(PDEVICE_OBJECT DeviceObject,
 				  PVOID Context);
 
-#if PKEY_VALUE_FULL_INFORMATION_DEFINED
-typedef NTSTATUS (*PIO_QUERY_DEVICE_ROUTINE)(PVOID Context,
-				      PUNICODE_STRING PathName,
-				      INTERFACE_TYPE BusType,
-				      ULONG BusNumber,
-				      PKEY_VALUE_FULL_INFORMATION* BusKey,
-				      CONFIGURATION_TYPE ControllerType,
-				      ULONG ControllerNumber,
-				      PKEY_VALUE_FULL_INFORMATION* CtrlKey,
-				      CONFIGURATION_TYPE PeripheralType,
-				      ULONG PeripheralNumber,
-				      PKEY_VALUE_FULL_INFORMATION* PrphKey);
-#endif
-
 #if WINDOWS_STRUCTS_DOESNT_ALREADY_DEFINE_THIS
 typedef struct _PARTITION_INFORMATION
 {
@@ -389,5 +435,143 @@ typedef struct _DRIVER_LAYOUT_INFORMATION
    ULONG Signature;
    PARTITION_INFORMATION PartitionEntry[1];
 } DRIVER_LAYOUT_INFORMATION, *PDRIVER_LAYOUT_INFORMATION;
+
+
+
+
+
+typedef struct _IO_RESOURCE_DESCRIPTOR
+{
+   UCHAR Option;
+   UCHAR Type;
+   UCHAR SharedDisposition;
+   
+   /*
+    * Reserved for system use
+    */
+   UCHAR Spare1;             
+   
+   USHORT Flags;
+   
+   /*
+    * Reserved for system use
+    */
+   UCHAR Spare2;
+   
+   union
+     {
+	struct
+	  {
+	     ULONG Length;
+	     ULONG Alignment;
+	     PHYSICAL_ADDRESS MinimumAddress;
+	     PHYSICAL_ADDRESS MaximumAddress;
+	  } Port;
+	struct
+	  {
+	     ULONG Length;
+	     ULONG Alignment;
+	     PHYSICAL_ADDRESS MinimumAddress;
+	     PHYSICAL_ADDRESS MaximumAddress;
+	  } Memory;
+	struct
+	  { 
+	     ULONG MinimumVector;
+	     ULONG MaximumVector;
+	  } Interrupt;
+	struct
+	  {
+	     ULONG MinimumChannel;
+	     ULONG MaximumChannel;
+	  } Dma;
+     } u;     
+} IO_RESOURCE_DESCRIPTOR, *PIO_RESOURCE_DESCRIPTOR;
+
+typedef struct _IO_RESOURCE_LIST
+{
+   USHORT Version;
+   USHORT Revision;
+   ULONG Count;
+   IO_RESOURCE_DESCRIPTOR Descriptors[1];
+} IO_RESOURCE_LIST, *PIO_RESOURCE_LIST;
+
+typedef struct _IO_RESOURCES_REQUIREMENTS_LIST
+{
+   /*
+    * List size in bytes
+    */
+   ULONG ListSize;
+   
+   /*
+    * System defined enum for the bus
+    */
+   INTERFACE_TYPE InterfaceType;
+   
+   ULONG BusNumber;
+   ULONG SlotNumber;
+   ULONG Reserved[3];
+   ULONG AlternativeLists;
+   IO_RESOURCE_LIST List[1];   
+} IO_RESOURCES_REQUIREMENTS_LIST, *PIO_RESOURCE_REQUIREMENTS_LIST;
+
+typedef struct
+{
+   UCHAR Type;
+   UCHAR ShareDisposition;
+   USHORT Flags;
+   union
+     {
+	struct
+	  {
+	     PHYSICAL_ADDRESS Start;
+	     ULONG Length;
+	  } Port;
+	struct
+	  {
+	     ULONG Level;
+	     ULONG Vector;
+	     ULONG Affinity;
+	  } Interrupt;
+	struct
+	  {
+	     PHYSICAL_ADDRESS Start;
+	     ULONG Length;
+	  } Memory;
+	struct
+	  {
+	     ULONG Channel;
+	     ULONG Port;
+	     ULONG Reserved1;
+	  } Dma;
+	struct
+	  {
+	     ULONG DataSize;
+	     ULONG Reserved1;
+	     ULONG Reserved2;
+	  } DeviceSpecificData;
+     } u;
+} CM_PARTIAL_RESOURCE_DESCRIPTOR, *PCM_PARTIAL_RESOURCE_DESCRIPTOR;
+
+typedef struct
+{
+   USHORT Version;
+   USHORT Revision;
+   ULONG Count;
+   CM_PARTIAL_RESOURCE_DESCRIPTOR PartialDescriptors[1];
+} CM_PARTIAL_RESOURCE_LIST;
+
+typedef struct
+{
+   INTERFACE_TYPE InterfaceType;
+   ULONG BusNumber;
+   CM_PARTIAL_RESOURCE_LIST PartialResourceList;
+} CM_FULL_RESOURCE_DESCRIPTOR;
+
+typedef struct
+{
+   ULONG Count;
+   CM_FULL_RESOURCE_DESCRIPTOR List[1];
+} CM_RESOURCE_LIST, *PCM_RESOURCE_LIST;
+
 
 #endif __INCLUDE_DDK_IOTYPES_H

@@ -1,6 +1,6 @@
 
 /*
-author: Noah Juopperi
+author: Boudewijn Dekker
 original source : wine
 todo: improve debug info
 */
@@ -8,12 +8,7 @@ todo: improve debug info
 #include <thread.h>
 
 
-WINBASEAPI 
-BOOL 
-WINAPI 
-SwitchToThread( 
-    VOID 
-    )
+WINBASEAPI BOOL WINAPI SwitchToThread(VOID )
 {
 	return NtYieldExecution();
 }

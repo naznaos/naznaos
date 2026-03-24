@@ -9,3 +9,4 @@ kernel32: dummy
 	make -C kernel32
 
 dummy:
+

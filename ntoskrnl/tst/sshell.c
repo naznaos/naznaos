@@ -10,7 +10,7 @@
 
 /* INCLUDES *****************************************************************/
 
-#include <windows.h> 
+#include <windows.h>
 #include <ddk/ntddk.h>
 #include <internal/kernel.h>
 #include <internal/string.h>

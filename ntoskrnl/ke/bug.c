@@ -1,7 +1,7 @@
 /*
  * COPYRIGHT:       See COPYING in the top level directory
  * PROJECT:         NaznaOS kernel
- * FILE:            kernel/base/bug.c
+ * FILE:            ntoskrnl/ke/bug.c
  * PURPOSE:         Graceful system shutdown if a bug is detected
  * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY:

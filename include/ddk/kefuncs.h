@@ -1,6 +1,23 @@
+#ifndef __INCLUDE_DDK_KEFUNCS_H
+#define __INCLUDE_DDK_KEFUNCS_H
+
 /* KERNEL FUNCTIONS ********************************************************/
 
+VOID KeDrainApcQueue(VOID);
+VOID KeInitializeApc(PKAPC Apc, PKNORMAL_ROUTINE NormalRoutine,
+		     PVOID NormalContext,
+		     PKTHREAD TargetThread);
+BOOLEAN KeInsertQueueApc(PKAPC Apc);
+
+/*
+ * FUNCTION: Acquires a spinlock so the caller can synchronize access to 
+ * data
+ * ARGUMENTS:
+ *         SpinLock = Initialized spinlock
+ *         OldIrql (OUT) = Set the previous irql on return 
+ */
 VOID KeAcquireSpinLock(PKSPIN_LOCK SpinLock, PKIRQL OldIrql);
+
 VOID KeAcquireSpinLockAtDpcLevel(PKSPIN_LOCK SpinLock);
 BOOLEAN KeCancelTimer(PKTIMER Timer);
 VOID KeClearEvent(PKEVENT Event);
@@ -14,6 +31,7 @@ VOID KeFlushIoBuffers(PMDL Mdl, BOOLEAN ReadOperation, BOOLEAN DmaOperation);
 KIRQL KeGetCurrentIrql(VOID);
 ULONG KeGetCurrentProcessorNumber(VOID);
 ULONG KeGetDcacheFillSize(VOID);
+PKTHREAD KeGetCurrentThread(VOID);
 VOID KeInitializeCallbackRecord(PKBUGCHECK_CALLBACK_RECORD CallbackRecord);
 VOID KeInitializeDeviceQueue(PKDEVICE_QUEUE DeviceQueue);
 VOID KeInitializeDpc(PKDPC Dpc, PKDEFERRED_ROUTINE DeferredRoutine,
@@ -122,3 +140,5 @@ VOID KeBugCheckEx(ULONG BugCheckCode,
  * RETURNS: Doesn't
  */
 VOID KeBugCheck(ULONG BugCheckCode);
+
+#endif /* __INCLUDE_DDK_KEFUNCS_H */

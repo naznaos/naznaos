@@ -1004,3 +1004,4 @@ BOOL WINAPI HeapValidate(HANDLE hheap, DWORD flags, LPCVOID pmem)
 
    return TRUE;
 }
+

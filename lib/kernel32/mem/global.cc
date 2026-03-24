@@ -317,3 +317,4 @@ UINT WINAPI GlobalFlags(HGLOBAL hmem)
 {
    return LocalFlags( (HLOCAL) hmem);
 }
+

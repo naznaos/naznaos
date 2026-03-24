@@ -5,7 +5,7 @@
  * Copyright 1992, Linus Torvalds.
  */
 /*
- * Reused for the naznaos kernel by Noah Juopperi (1998)
+ * Reused for the NaznaOS kernel by Noah Juopperi (1998)
  */
 
 /*

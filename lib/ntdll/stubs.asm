@@ -6,3 +6,4 @@ NtAlertThread:
 	lea	edx,[esp+4]
 	int	2Eh
 	ret	14
+

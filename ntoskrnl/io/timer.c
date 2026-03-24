@@ -1,8 +1,8 @@
 /*
  * COPYRIGHT:       See COPYING in the top level directory
  * PROJECT:         NaznaOS kernel
- * FILE:            kernel/iomgr/timer.c
- * PURPOSE:         IO timers
+ * FILE:            ntoskrnl/io/timer.c
+ * PURPOSE:         io timers
  * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY:
  *                  Created 22/05/98

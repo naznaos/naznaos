@@ -20,3 +20,4 @@ VOID CopyMemory(PVOID Destination, CONST VOID* Source, DWORD Length)
    #endif /* __i386__ */
 }
 	   
+

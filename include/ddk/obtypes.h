@@ -12,7 +12,7 @@ typedef struct _OBJECT_TYPE
    /*
     * PURPOSE: Name of the type
     */
-   LPCSTR TypeName;
+   UNICODE_STRING TypeName;
    
    /*
     * PURPOSE: Total number of objects of this type
@@ -96,7 +96,7 @@ typedef struct _OBJECT
    /*
     * PURPOSE: Name of this entry
     */
-   LPCSTR name;
+   UNICODE_STRING name;
    
    /*
     * PURPOSE: Our entry in our parents list of subdirectory
@@ -133,17 +133,9 @@ typedef struct _OBJECT
 typedef struct _OBJECT_ATTRIBUTES
 {
    ULONG Length;
-   
-   /*
-    * PURPOSE: Attributes of the object
-    */
+   HANDLE RootDirectory;
+   PUNICODE_STRING ObjectName;
    ULONG Attributes;
-   
-   //SECURITY_DESCRIPTOR SecurityDescriptor
-   //SecurityQualityOfService
-   
-   struct _DIRECTORY_OBJECT* parent;
-   char* name;
-   char* path;
-   
+   PVOID SecurityDescriptor;
+   PVOID SecurityQualityOfService;
 } OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;

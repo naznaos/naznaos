@@ -233,11 +233,12 @@ _load_file:
         ; 
         ; Convert the length into 
         ;
-        mov     [size_mod_4k],ax
+        mov     [size_mod_4k],bx
         and     word [size_mod_4k],0fffh
 
-        shr     ax,12
-        mov     [size_div_4k],ax
+        shr     ebx,12
+        mov     [size_div_4k],ebx
+
 
         ;
         ; Seek to beginning of file
@@ -689,4 +690,5 @@ gdt:
         times NR_TASKS*8 db 0
 
 _end:
+
 
