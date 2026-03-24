@@ -231,7 +231,7 @@ void test_mouse(void)
 
   old_cursor[0]=' ';
   old_cursor[1]=7;
-  new_cursor[0]='�';
+  new_cursor[0]='';
   new_cursor[1]=15;
 
   old_cursor[0]=get_text_char(mouse_x, mouse_y);

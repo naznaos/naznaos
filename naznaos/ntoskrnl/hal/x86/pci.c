@@ -1,7 +1,7 @@
 /*
  * COPYRIGHT:       See COPYING in the top level directory
  * PROJECT:         NaznaOS kernel
- * FILE:            mkernel/hal/eisa.c
+ * FILE:            ntoskrnl/hal/x86/pci.c
  * PURPOSE:         Interfaces to the PCI bus
  * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY:
