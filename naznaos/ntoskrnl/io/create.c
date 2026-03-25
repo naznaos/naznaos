@@ -17,7 +17,7 @@
 #include <internal/string.h>
 #include <wstring.h>
 
-#define NDEBUG
+//#define NDEBUG
 #include <internal/debug.h>
 
 /* FUNCTIONS *************************************************************/
@@ -263,5 +263,4 @@ NTSTATUS ZwOpenFile(PHANDLE FileHandle,
 		       NULL,
 		       0));
 }
-
 
