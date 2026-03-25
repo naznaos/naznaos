@@ -8,3 +8,4 @@ ULONG DbgPrint(PCH Format,...);
 #define DBG_GET_SHOW_ERRTEXT  0x0008
 VOID DbgGetErrorText(NTSTATUS ErrorCode, PUNICODE_STRING ErrorText, ULONG Flags);
 VOID DbgPrintErrorMessage(NTSTATUS ErrorCode);
+

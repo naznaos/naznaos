@@ -332,3 +332,4 @@ LARGE_INTEGER RtlLargeIntegerSubtract(LARGE_INTEGER Minuend,
 
   return RC;
 }
+

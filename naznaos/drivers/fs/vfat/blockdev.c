@@ -179,3 +179,4 @@ BOOLEAN VFATWriteSectors(IN PDEVICE_OBJECT pDeviceObject,
     return TRUE;
 }
 
+

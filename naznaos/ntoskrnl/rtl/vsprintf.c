@@ -10,7 +10,7 @@
  */
 
 /*
- * Appropiated for the Naznaos kernel, March 1998 -- Noah Juopperi
+ * Appropiated for the naznaos kernel, March 1998 -- Noah Juopperi
  */
 
 #include <stdarg.h>
@@ -362,3 +362,4 @@ int sprintf(char * buf, const char *fmt, ...)
 	va_end(args);
 	return i;
 }
+

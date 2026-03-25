@@ -44,3 +44,4 @@ LPWSTR STDCALL GetCommandLineW(VOID)
 {
 	return GetCurrentPeb()->StartupInfo->CommandLine;
 }
+
