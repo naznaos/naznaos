@@ -10,7 +10,7 @@
  */
 
 /*
- * Appropiated for the naznaos kernel, March 1998 -- Noah Juopperi
+ * Appropiated for the Naznaos kernel, March 1998 -- Noah Juopperi
  */
 
 #include <stdarg.h>
@@ -338,3 +338,42 @@ int sprintf(char * buf, const char *fmt, ...)
 	return i;
 }
 
+int wsprintfA(char * buf, const char *fmt, ...)
+{
+	va_list args;
+	int i;
+
+	va_start(args, fmt);
+	i=vsprintf(buf,fmt,args);
+	va_end(args);
+	return i;
+}
+
+int wsprintfW(unsigned short * buf, const unsigned short *fmt, ...)
+{
+	va_list args;
+	int i;
+
+	va_start(args, fmt);
+	//i=vsprintf(buf,fmt,args);
+	va_end(args);
+	return i;
+}
+
+
+unsigned short towupper(unsigned short w)
+{
+	if ( w < L'A' )
+		return w + 'A';
+	else
+		return w;
+}
+
+char iswlower(unsigned short w)
+{
+	if ( w < L'A' )
+		return 1;
+	else
+		return 0;	
+}
+		
