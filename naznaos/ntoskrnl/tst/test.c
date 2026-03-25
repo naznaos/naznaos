@@ -3,7 +3,7 @@
  * PROJECT:         NaznaOS kernel
  * FILE:            ntoskrnl/tst/test.c
  * PURPOSE:         Kernel regression tests
- * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
+ * PROGRAMMER:      David Welch (welch@mcmail.com)
  * UPDATE HISTORY:
  *                28/05/98: Created
  */
@@ -130,12 +130,12 @@ VOID ExExecuteShell(VOID)
    BaseAddress = (PVOID)0x10000;
    SectionOffset.HighPart = 0;
    SectionOffset.LowPart = 0;
-   Size = 0x8000;
+   Size = 0x10000;
    ZwMapViewOfSection(SectionHandle,
 		      ShellHandle,
 		      &BaseAddress,
 		      0,
-                      0x8000,
+                      Size,
 		      &SectionOffset,
 		      &Size,
 		      0,
