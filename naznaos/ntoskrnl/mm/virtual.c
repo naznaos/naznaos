@@ -743,4 +743,3 @@ NTSTATUS STDCALL ZwWriteVirtualMemory(IN HANDLE ProcessHandle,
      }
    return(STATUS_SUCCESS);
 }
-
