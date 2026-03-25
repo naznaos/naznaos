@@ -12,6 +12,7 @@
 
 #include <ddk/ntddk.h>
 
+#define NDEBUG
 #include <internal/debug.h>
 
 /* FUNCTIONS *****************************************************************/
@@ -202,5 +203,4 @@ ZwSetEaFile(IN HANDLE FileHandle,
 {
   UNIMPLEMENTED;
 }
-
 

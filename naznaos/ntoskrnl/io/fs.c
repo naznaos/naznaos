@@ -155,7 +155,9 @@ NTSTATUS IoTryToMountStorageDevice(PDEVICE_OBJECT DeviceObject)
 	     current_entry = current_entry->Flink;
 	  }
      }
+CHECKPOINT;
    KeReleaseSpinLock(&FileSystemListLock,oldlvl);
+CHECKPOINT;
    return(STATUS_UNRECOGNIZED_VOLUME);
 }
 
@@ -197,5 +199,4 @@ VOID IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
      }
    KeReleaseSpinLock(&FileSystemListLock,oldlvl);
 }
-
 
