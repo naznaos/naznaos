@@ -441,3 +441,4 @@ FloppyConfigure(WORD PortBase, BOOLEAN DisableFIFO, BYTE FIFODepth)
   return TRUE;
 }       
 
+

@@ -597,3 +597,4 @@ FatalAppExitW(
 	return;	
 }
 
+

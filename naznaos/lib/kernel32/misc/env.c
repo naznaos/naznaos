@@ -140,7 +140,7 @@ GetVersionExW(
 	lpVersionInformation->dwMinorVersion = 0;
 	lpVersionInformation->dwBuildNumber = 12;
 	lpVersionInformation->dwPlatformId = VER_PLATFORM_WIN32_NT;
-	lstrcpyW((WCHAR *)lpVersionInformation->szCSDVersion,L"NaznaOs Pre-Alpha 12");
+	lstrcpyW((WCHAR *)lpVersionInformation->szCSDVersion,L"ReactOs Pre-Alpha 12");
 	return TRUE;
 }
 
@@ -155,6 +155,7 @@ GetVersionExA(
 	lpVersionInformation->dwMinorVersion = 0;
 	lpVersionInformation->dwBuildNumber = 12;
 	lpVersionInformation->dwPlatformId = VER_PLATFORM_WIN32_NT;
-	lstrcpyA((char *)lpVersionInformation->szCSDVersion,"NaznaOs Pre-Alpha 12");
+	lstrcpyA((char *)lpVersionInformation->szCSDVersion,"ReactOs Pre-Alpha 12");
 	return TRUE;
 }
+

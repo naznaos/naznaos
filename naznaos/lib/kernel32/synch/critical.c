@@ -38,3 +38,4 @@ VOID LeaveCriticalSection(LPCRITICAL_SECTION lpCriticalSection)
 WINBOOL TryEntryCriticalSection(LPCRITICAL_SECTION lpCriticalSection)
 {
 }
+

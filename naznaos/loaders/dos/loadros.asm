@@ -390,6 +390,7 @@ rostitle db '',0
 ;
 ;
 loading_msg db 'Loading: ',0
+death_msg: db 'death', 0
 
 filelength_lo dw 0
 filelength_hi dw 0
@@ -734,5 +735,6 @@ gdt:
         times NR_TASKS*8 db 0
 
 _end:
+
 
 

@@ -80,3 +80,4 @@ VOID KeBugCheck(ULONG BugCheckCode)
 {
    KeBugCheckEx(BugCheckCode,0,0,0,0);
 }
+

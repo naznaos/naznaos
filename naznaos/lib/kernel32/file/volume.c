@@ -270,3 +270,4 @@ GetVolumeInformationW(
 	return TRUE;
 	
 }
+

@@ -155,3 +155,4 @@ typedef struct _FLOPPY_DEVICE_PARAMETERS
   char *DriveName;               /* name of the drive for reporting */
 } FLOPPY_DEVICE_PARAMETERS, *PFLOPPY_DEVICE_PARAMETERS;
 
+

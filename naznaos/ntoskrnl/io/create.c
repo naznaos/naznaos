@@ -3,7 +3,7 @@
  * PROJECT:         NaznaOS kernel
  * FILE:            ntoskrnl/io/create.c
  * PURPOSE:         Handling file create/open apis
- * PROGRAMMER:      Noah Juopperi(welch@mcmail.com)
+ * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY:
  *                  24/05/98: Created
  */
@@ -271,4 +271,5 @@ NTSTATUS ZwOpenFile(PHANDLE FileHandle,
 		       NULL,
 		       0));
 }
+
 

@@ -107,3 +107,4 @@ QueryDosDeviceW(
 {
 	return FALSE;
 }
+

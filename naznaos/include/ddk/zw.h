@@ -4,9 +4,9 @@
  * PURPOSE:          System call definitions
  * FILE:             include/ddk/zw.h
  * REVISION HISTORY: 
- *              ??/??/??: First few functions (David Welch)
+ *              ??/??/??: First few functions (Noah Juopperi)
  *              ??/??/??: Complete implementation by Ariadne
- *              13/07/98: Reorganised things a bit (David Welch)
+ *              13/07/98: Reorganised things a bit (Noah Juopperi)
  *              04/08/98: Added some documentation (Ariadne)
  *		14/08/98: Added type TIME and change variable type from [1] to [0]
  *              14/09/98: Added for each Nt call a corresponding Zw Call
@@ -3215,7 +3215,7 @@ ZwQueryObject(
  *        Counter = Performance counter
  *	  Frequency = Performance frequency
  * REMARKS:
-	This procedure queries a tick count faster than 10ms ( The resolution for  Intel�-based CPUs is about 0.8 microseconds.)
+	This procedure queries a tick count faster than 10ms ( The resolution for  Intel-based CPUs is about 0.8 microseconds.)
 	This procedure maps to the win32 QueryPerformanceCounter, QueryPerformanceFrequency 
  * RETURNS: Status
  *

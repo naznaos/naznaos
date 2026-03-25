@@ -12,7 +12,7 @@
 #include <ddk/ntddk.h>
 #include <internal/pool.h>
 
-//#define NDEBUG
+#define NDEBUG
 #include <internal/debug.h>
 
 /* GLOBALS *****************************************************************/
@@ -116,3 +116,4 @@ PVOID ExAllocatePoolWithQuota(POOL_TYPE PoolType, ULONG NumberOfBytes)
 {
    return(ExAllocatePoolWithQuotaTag(PoolType,NumberOfBytes,TAG_NONE));
 }
+
