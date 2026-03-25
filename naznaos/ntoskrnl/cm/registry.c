@@ -685,3 +685,4 @@ NTSTATUS RtlWriteRegistryValue(ULONG RelativeTo,
 {
    UNIMPLEMENTED;
 }
+

@@ -56,3 +56,4 @@ extern "C"
 #endif
 
 #endif /* __NTDDK_H */
+

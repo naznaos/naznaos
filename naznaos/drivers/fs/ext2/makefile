@@ -6,3 +6,4 @@ ext2.o: $(OBJECTS)
 	$(LD) -r $(OBJECTS) -o ext2fs.sys
 
 include ../../../rules.mak
+

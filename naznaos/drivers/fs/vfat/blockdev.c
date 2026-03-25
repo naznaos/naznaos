@@ -150,3 +150,4 @@ BOOLEAN VFATWriteSectors(IN PDEVICE_OBJECT pDeviceObject,
     DPRINT("Block request succeeded\n");
     return TRUE;
 }
+

@@ -280,3 +280,4 @@ DPRINT("new : entry=%11.11s\n",pEntry->Filename);
 DPRINT("addentry ok\n");
    return STATUS_SUCCESS;
 }
+

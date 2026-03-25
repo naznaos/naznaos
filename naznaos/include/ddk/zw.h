@@ -3157,7 +3157,7 @@ ZwQueryObject(
  *        Counter = Performance counter
  *	  Frequency = Performance frequency
  * REMARKS:
-	This procedure queries a tick count faster than 10ms ( The resolution for  Intel�-based CPUs is about 0.8 microseconds.)
+	This procedure queries a tick count faster than 10ms ( The resolution for  Intel-based CPUs is about 0.8 microseconds.)
 	This procedure maps to the win32 QueryPerformanceCounter, QueryPerformanceFrequency 
  * RETURNS: Status
  *

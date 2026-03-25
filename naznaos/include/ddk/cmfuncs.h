@@ -44,3 +44,4 @@ ZwCreateKey(OUT PHANDLE KeyHandle,
             IN PUNICODE_STRING Class OPTIONAL,
             IN ULONG CreateOptions,
             IN PULONG Disposition OPTIONAL);
+
