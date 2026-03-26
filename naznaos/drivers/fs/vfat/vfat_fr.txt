@@ -1,7 +1,7 @@
 A Faire :
 	finir FsdDirectoryControl.
-	tester les ï¿½critures.
-	FsdCreate doit crï¿½er le fichier s'il n'existe pas et que le rï¿½pertoire parent existe,
+	tester les écritures.
+	FsdCreate doit créer le fichier s'il n'existe pas et que le répertoire parent existe,
          et que les options d'appel lee demandent.
 
 
@@ -14,33 +14,33 @@ vfat.h
 
 
 
-fonctions visibles de l'extï¿½rieur (appelï¿½es par IoCallDriver):
+fonctions visibles de l'extérieur (appelées par IoCallDriver):
   DriverEntry : iface.c
     initialisation du driver
     rend visibles les fonctions suivantes :
   FsdFileSystemControl
-    rï¿½pond aux demandes IRP_MJ_FILE_SYSTEM_CONTROL
+    répond aux demandes IRP_MJ_FILE_SYSTEM_CONTROL
     monte les filesystems qu'il reconnait
     appelle FsdHasFileSystem pour voir si le driver reconnait le filesystem.
     puis appelle FsdMount.
  NTSTATUS FsdCreate(PDEVICE_OBJECT DeviceObject, PIRP Irp)
-    rï¿½pond aux demandes IRP_MJ_CREATE :
+    répond aux demandes IRP_MJ_CREATE :
 	appelle FsdOpenFile, qui remplit IoGetCurrentIrpStackLocation(Irp)->FileObject->Fcb
 	remplit Irp->IoStatus
 	appelle IoCompleteRequest
   FsdClose
-    rï¿½pond aux demandes IRP_MJ_CLOSE
+    répond aux demandes IRP_MJ_CLOSE
 	appelle FsdCloseFile, qui ne fait rien actuellement.
 	remplit Irp->IoStatus
 	appelle IoCompleteRequest
   FsdRead
-    rï¿½pond aux demandes IRP_MJ_READ
+    répond aux demandes IRP_MJ_READ
   FsdWrite
-    rï¿½pond aux demandes IRP_MJ_WRITE
+    répond aux demandes IRP_MJ_WRITE
   FsdQueryInformation
-    rï¿½pond aux demandes IRP_MJ_QUERY_INFORMATION
+    répond aux demandes IRP_MJ_QUERY_INFORMATION
   FsdDirectoryControl
-    rï¿½pond aux demandes IRP_MJ_DIRECTORY_CONTROL
+    répond aux demandes IRP_MJ_DIRECTORY_CONTROL
 
 
 fonctions strictement internes dans iface.c :
@@ -70,16 +70,16 @@ fonctions strictement internes dans iface.c :
  BOOLEAN wstrcmpjoki(PWSTR s1, PWSTR s2)
  NTSTATUS FindFile(PDEVICE_EXTENSION DeviceExt, PFCB Fcb,
 		  PFCB Parent, PWSTR FileToFind)
-	parcourt le rï¿½pertoire dï¿½crit par Parent pour trouver un fichier dans le filesystem
-	dï¿½crit par DeviceExt.Si Parent==NULL : part de la racine du filesystem.
+	parcourt le répertoire décrit par Parent pour trouver un fichier dans le filesystem
+	décrit par DeviceExt.Si Parent==NULL : part de la racine du filesystem.
 	remplit Fcb si trouve elle le fichier, et renvoie STATUS_SUCCESS.
 	renvoie STATUS_UNSUCCESSFUL sinon.
  NTSTATUS FsdCloseFile(PDEVICE_EXTENSION DeviceExt, PFILE_OBJECT FileObject)
 	ne fait rien, renvoie STATUS_SUCCESS.
  NTSTATUS FsdOpenFile(PDEVICE_EXTENSION DeviceExt, PFILE_OBJECT FileObject, 
 		     PWSTR FileName)
-	parcourt l'arborescence pour trouver le fichier(appelle FindFile ï¿½ chaque niveau)
-	si trouvï¿½ : FileObject->FsContext = Fcb du fichier, renvoie STATUS_SUCCESS
+	parcourt l'arborescence pour trouver le fichier(appelle FindFile à chaque niveau)
+	si trouvé : FileObject->FsContext = Fcb du fichier, renvoie STATUS_SUCCESS
 	sinon : renvoie STATUS_UNSUCCESSFULL
  BOOLEAN FsdHasFileSystem(PDEVICE_OBJECT DeviceToMount)
  NTSTATUS FsdMountDevice(PDEVICE_EXTENSION DeviceExt,
