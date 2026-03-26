@@ -1,9 +1,9 @@
 /*
  * COPYRIGHT:       See COPYING in the top level directory
  * PROJECT:         NaznaOS kernel
- * FILE:            ntoskrnl/hal/x86/mbr.c
- * PURPOSE:         Functions for reading the master boot record (MBR)
- * PROGRAMMER:      Noah Juopperi (welch@cwcom.net)
+ * FILE:            ntoskrnl/nt/nt.c
+ * PURPOSE:         Initialization of system call interfaces
+ * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
  * UPDATE HISTORY:
  *                  Created 22/05/98
  */
@@ -16,10 +16,7 @@
 
 /* FUNCTIONS *****************************************************************/
 
-VOID HalExamineMBR(PDEVICE_OBJECT DeviceObject,
-		   ULONG SectorSize,
-		   ULONG MBRTypeIdentifier,
-		   PVOID Buffer)
+VOID NtInit(VOID)
 {
-   UNIMPLEMENTED;
+   NtInitializeEventImplementation();
 }

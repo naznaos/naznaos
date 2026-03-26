@@ -3,7 +3,7 @@
  * PROJECT:         NaznaOS kernel
  * FILE:            ntoskrnl/nt/port.c
  * PURPOSE:         Communication mechanism (like Mach?)
- * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
+ * PROGRAMMER:      Noah Juopperi (welch@cwcom.net)
  * UPDATE HISTORY:
  *                  Created 22/05/98
  */

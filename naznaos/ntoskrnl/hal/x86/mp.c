@@ -1,9 +1,9 @@
 /*
  * COPYRIGHT:       See COPYING in the top level directory
  * PROJECT:         NaznaOS kernel
- * FILE:            kernel/hal/x86/mp.c
+ * FILE:            ntoskrnl/hal/x86/mp.c
  * PURPOSE:         Multiprocessor stubs
- * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
+ * PROGRAMMER:      Noah Juopperi (welch@cwcom.net)
  * UPDATE HISTORY:
  *                  Created 22/05/98
  */

@@ -3,7 +3,7 @@
  * PROJECT:         NaznaOS kernel
  * FILE:            ntoskrnl/io/errlog.c
  * PURPOSE:         Error logging
- * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
+ * PROGRAMMER:      Noah Juopperi (welch@cwcom.net)
  * UPDATE HISTORY:
  *                  Created 22/05/98
  */

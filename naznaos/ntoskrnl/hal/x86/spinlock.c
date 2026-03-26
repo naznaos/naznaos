@@ -1,9 +1,9 @@
 /*
  * COPYRIGHT:       See COPYING in the top level directory
  * PROJECT:         NaznaOS kernel
- * FILE:            kernel/hal/x86/spinlock.c
+ * FILE:            ntoskrnl/hal/x86/spinlock.c
  * PURPOSE:         Implements spinlocks
- * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
+ * PROGRAMMER:      Noah Juopperi (welch@cwcom.net)
  * UPDATE HISTORY:
  *                  3/6/98: Created
  */
@@ -15,7 +15,6 @@
 
 /* INCLUDES ****************************************************************/
 
-#include <windows.h>
 #include <ddk/ntddk.h>
 
 #include <internal/debug.h>

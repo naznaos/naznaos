@@ -1,18 +1,16 @@
 /*
  * COPYRIGHT:               See COPYING in the top level directory
  * PROJECT:                 NaznaOS kernel
- * FILE:                    mkernel/rtl/seqlist.c
+ * FILE:                    ntoskrnl/rtl/seqlist.c
  * PURPOSE:                 Implementing sequenced lists
- * PROGRAMMER:              Noah Juopperi (welch@mcmail.com)
+ * PROGRAMMER:              Noah Juopperi (welch@cwcom.net)
  * REVISION HISTORY:
  *             28/06/98: Created
  */
 
 /* INCLUDES ***************************************************************/
 
-#include <windows.h>
 #include <ddk/ntddk.h>
-#include <internal/kernel.h>
 
 /* TYPES ********************************************************************/
 

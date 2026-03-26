@@ -1,17 +1,15 @@
 /*
  * COPYRIGHT:       See COPYING in the top level directory
  * PROJECT:         NaznaOS kernel
- * FILE:            kernel/mm/cont.c
+ * FILE:            ntoskrnl/mm/cont.c
  * PURPOSE:         Manages non-cached memory
- * PROGRAMMER:      Noah Juopperi (welch@mcmail.com)
+ * PROGRAMMER:      Noah Juopperi (welch@cwcom.net)
  * UPDATE HISTORY:
  *                  Created 22/05/98
  */
 
 /* INCLUDES *****************************************************************/
 
-#include <internal/kernel.h>
-#include <internal/linkage.h>
 #include <ddk/ntddk.h>
 
 #include <internal/debug.h>
