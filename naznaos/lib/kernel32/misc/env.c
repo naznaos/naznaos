@@ -229,62 +229,13 @@ GetVersionExA(
 	lpVersionInformation->dwMinorVersion = 0;
 	lpVersionInformation->dwBuildNumber = 12;
 	lpVersionInformation->dwPlatformId = VER_PLATFORM_WIN32_NT;
-	lstrcpyA((char *)lpVersionInformation->szCSDVersion,"ReactOs Pre-Alpha");
-	return TRUE;
-}
-
-VOID GetSystemTime(
-    LPSYSTEMTIME  lpSystemTime 	
-   )
-{
-	NTSTATUS errCode;
-memset(lpSystemTime,sizeof(SYSTEMTIME),0);
-//	errCode = NtQuerySystemTime (
-//		(TIME *)lpSystemTime
-//	);
-	return;
-}
-
-WINBOOL
-STDCALL
-SetSystemTime(
-	      CONST SYSTEMTIME *lpSystemTime
-	      )
-{
-	NTSTATUS errCode;
-	LARGE_INTEGER NewSystemTime;
-	errCode = NtSetSystemTime (
-		(LARGE_INTEGER *)lpSystemTime,
-		&NewSystemTime
-	);
-	if ( !NT_SUCCESS(errCode) )
-		return FALSE;
+	lstrcpyA((char *)lpVersionInformation->szCSDVersion,"NaznaOs Pre-Alpha");
 	return TRUE;
 }
 
 
 
 
-
-
-VOID
-STDCALL
-GetLocalTime(
-	     LPSYSTEMTIME lpSystemTime
-	     )
-{
-	GetSystemTime(lpSystemTime);
-}
-
-
-WINBOOL
-STDCALL
-SetLocalTime(
-	     CONST SYSTEMTIME *lpSystemTime
-	     )
-{
-	return SetSystemTime(lpSystemTime);
-}
 
 LPSTR
 STDCALL
@@ -378,4 +329,3 @@ FreeEnvironmentStringsW(
 	HeapFree(GetProcessHeap(),0,EnvironmentStrings);
 	return TRUE;
 }
-
