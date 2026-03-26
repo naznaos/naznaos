@@ -3,7 +3,7 @@
  * PROJECT:     NaznaOS kernel
  * FILE:        ntoskrnl/mm/virtual.c
  * PURPOSE:     implementing the Virtualxxx section of the win32 api
- * PROGRAMMER:  Noah Juopperi 
+ * PROGRAMMER:  Noah Juopperi
  * UPDATE HISTORY:
  *              09/4/98: Created
  *              10/6/98: Corrections from Fatahi (i_fatahi@hotmail.com)
